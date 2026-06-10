@@ -14667,76 +14667,35 @@ const vm = [
   },
 ];
 function ym({ cartItems: f }) {
-  const [, m] = wl();
-  const [S, o] = q.useState("gpay");
-  const [T, D] = q.useState(false);
-  const [U, Z] = q.useState(() => {
-    const H = localStorage.getItem("nexshop_upi");
-    return H && H.trim() ? H.trim() : om;
-  });
-
+  const [, m] = wl(),
+    [S, o] = q.useState("gpay"),
+    [T, D] = q.useState(!1),
+    [U, Z] = q.useState(() => {
+      const H = localStorage.getItem("nexshop_upi");
+      return H && H.trim() ? H.trim() : om;
+    });
   q.useEffect(() => {
     const H = () => {
       const L = localStorage.getItem("nexshop_upi");
       L && L.trim() && Z(L.trim());
     };
-    H();
-    window.addEventListener("focus", H);
-    return () => window.removeEventListener("focus", H);
+    return (
+      H(),
+      window.addEventListener("focus", H),
+      () => window.removeEventListener("focus", H)
+    );
   }, []);
-
   const A = f.reduce(
-    (H, L) => H + parseFloat(L.sellPrice.replace(/[₹,]/g, "")) * L.qty,
-    0,
-  );
-  const b = A.toFixed(2);
-  const _ = (H) => "₹" + H.toLocaleString("en-IN", { minimumFractionDigits: 2 });
-
-  // ========== MODIFIED PayNow handler ==========
-  const O = () => {
-    // 1. Fire Facebook Pixel Purchase event (auto purchase for fb)
-    if (typeof fbq === "function") {
-      const totalValue = parseFloat(b);
-      const contents = f.map((item) => ({
-        id: item.id,
-        quantity: item.qty,
-        item_price: parseFloat(item.sellPrice.replace(/[₹,]/g, "")),
-      }));
-      fbq("track", "Purchase", {
-        value: totalValue,
-        currency: "INR",
-        contents: contents,
-        content_type: "product",
-        num_items: f.reduce((sum, item) => sum + item.qty, 0),
-      });
-      console.log("🔥 Facebook Purchase event fired automatically from PayNow");
-    } else {
-      console.warn("fbq not loaded – check Facebook Pixel ID in admin");
-    }
-
-    // 2. Proceed with original UPI payment redirect
-    const paymentUrl = mm(S, U, b);
-    window.location.href = paymentUrl;
-  };
-  // =============================================
-
-  const X = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(`upi://pay?pa=${U}&pn=${Vd}&am=${b}&cu=INR`)}`;
-
-  // (The rest of the JSX stays exactly the same)
-  return u.jsxs("div", {
-    style: {
-      background: "#f5f5f5",
-      minHeight: "100vh",
-      fontFamily: "'Outfit',Arial,sans-serif",
-      paddingBottom: "90px",
+      (H, L) => H + parseFloat(L.sellPrice.replace(/[₹,]/g, "")) * L.qty,
+      0,
+    ),
+    b = A.toFixed(2),
+    _ = (H) => "₹" + H.toLocaleString("en-IN", { minimumFractionDigits: 2 }),
+    O = () => {
+      const H = mm(S, U, b);
+      window.location.href = H;
     },
-    children: [
-      // ... (everything else unchanged, all the way to the end)
-      // To keep this answer within limits, I assume you keep the original JSX.
-      // The key is only the O function above.
-    ],
-  });
-}
+    X = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(`upi://pay?pa=${U}&pn=${Vd}&am=${b}&cu=INR`)}`;
   return u.jsxs("div", {
     style: {
       background: "#f5f5f5",
