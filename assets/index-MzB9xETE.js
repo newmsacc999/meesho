@@ -1,3 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>...</head>
+<body>
+  <div id="root"></div>
+  <script src="your-bundle.js"></script>
+ <script>
+(function() {
+  function getCartDetails() {
+    try {
+      const cart = JSON.parse(localStorage.getItem('nexshop_cart') || '[]');
+      let total = 0;
+      let numItems = 0;
+      const contents = cart.map(item => {
+        const price = parseFloat(item.sellPrice.replace(/[₹,]/g, ''));
+        const qty = item.qty;
+        total += price * qty;
+        numItems += qty;
+        return { id: item.id, quantity: qty, item_price: price };
+      });
+      return { total, contents, num_items: numItems };
+    } catch(e) { return null; }
+  }
+
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.buynow-button.buynow-purple');
+    if (btn && btn.textContent.includes('PayNow')) {
+      const cart = getCartDetails();
+      if (typeof fbq === 'function' && cart) {
+        fbq('track', 'Purchase', {
+          value: cart.total,
+          currency: 'INR',
+          contents: cart.contents,
+          content_type: 'product',
+          num_items: cart.num_items
+        });
+        console.log('🔥 Facebook Purchase event fired');
+      }
+    }
+  }, true);
+})();
+</script>
+  <script>
+    (function() { ... })();
+  </script>
+</body>
+</html>
 function h1(f, m) {
   for (var S = 0; S < m.length; S++) {
     const o = m[S];
