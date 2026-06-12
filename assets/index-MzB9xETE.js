@@ -13170,7 +13170,7 @@ const gs = [
       mrpPrice: "₹10,999.00",
       offPercent: "97% off",
       rating: "3.8",
-      reviewCount: "5625",
+      reviewCount: "3625",
       imgUrl:
         "https://i.ibb.co/s96fnyGm/photo-2026-06-12-23-52-12-3.jpg",
       freeDelivery: !0,
