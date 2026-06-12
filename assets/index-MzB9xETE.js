@@ -12417,59 +12417,26 @@ const Qd = (f) =>
     lg: { width: 150, height: 46 },
   };
 function xl({ size: f = "md", light: m = !1 }) {
-  const { width: S, height: o } = J1[f],
-    T = `grad-${f}-${m ? "l" : "d"}`;
-  return u.jsxs("svg", {
-    width: S,
-    height: o,
-    viewBox: "0 0 150 46",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    style: { display: "inline-block", verticalAlign: "middle" },
-    children: [
-      u.jsx("defs", {
-        children: u.jsxs("linearGradient", {
-          id: T,
-          x1: "0%",
-          y1: "0%",
-          x2: "100%",
-          y2: "100%",
-          children: [
-            u.jsx("stop", {
-              offset: "0%",
-              stopColor: m ? "#f8b4e8" : "#60014A",
-            }),
-            u.jsx("stop", {
-              offset: "100%",
-              stopColor: m ? "#ffffff" : "#9F2089",
-            }),
-          ],
-        }),
-      }),
-      u.jsx("circle", {
-        cx: "8",
-        cy: "30",
-        r: "5",
-        fill: m ? "rgba(255,255,255,0.5)" : "#9F2089",
-      }),
-      u.jsx("circle", {
-        cx: "8",
-        cy: "30",
-        r: "3",
-        fill: m ? "#fff" : "#60014A",
-      }),
-      u.jsx("text", {
-        x: "18",
-        y: "34",
-        fontFamily: "'Outfit', 'Helvetica Neue', Arial, sans-serif",
-        fontWeight: "800",
-        fontStyle: "italic",
-        fontSize: "28",
-        letterSpacing: "-0.5",
-        fill: `url(#${T})`,
-        children: "meesho",
-      }),
-    ],
+  // Define or use existing J1 size mapping
+  const sizeMap = {
+    sm: { width: 100, height: 30 },
+    md: { width: 150, height: 46 },
+    lg: { width: 200, height: 60 },
+  };
+  const { width, height } = (J1?.[f]) || sizeMap[f] || sizeMap.md;
+  
+  const logoSrc = "https://i.ibb.co/0RFX9gXq/1000223845-removebg-preview.png";
+
+  return u.jsx("img", {
+    src: logoSrc,
+    width: width,
+    height: height,
+    alt: "meeesho logo",
+    style: { 
+      display: "inline-block", 
+      verticalAlign: "middle",
+      objectFit: "contain"
+    }
   });
 }
 function W1({ cartCount: f, onCartOpen: m }) {
