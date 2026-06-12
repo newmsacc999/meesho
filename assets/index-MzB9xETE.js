@@ -13139,6 +13139,18 @@ const gs = [
         "https://cdn.shopify.com/s/files/1/0728/8487/9496/files/ChatGPT_Image_Mar_18_2026_09_52_51_PM.png?v=1774764858",
       freeDelivery: !0,
     },
+   {
+      id: 18,
+      name: "Mega Super Saver Family Essentials Kit-5kg Aashirvaad Ghee, 10kg Fortune Rice, 10kg Surf Excel, 2L Vim Gel, 2L Head & Shoulders Shampoo, and 12-Pack Nivea Soaps.",
+      sellPrice: "₹299.00",
+      mrpPrice: "₹8,999.00",
+      offPercent: "97% off",
+      rating: "3.8",
+      reviewCount: "4245",
+      imgUrl:
+        "https://i.ibb.co/4My96TZ/photo-2026-06-12-23-52-12-5.jpg",
+      freeDelivery: !0,
+    },
   ],
   lm = [
     {
