@@ -1,232 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Featured Products</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Online Shopping Site for Fashion, Electronics, Home & More | Meesho</title>
+    <meta name="description" content="NexShop — built on Replit. Update this description to reflect the app." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="NexShop" />
+    <meta property="og:description" content="NexShop — built on Replit. Update this description to reflect the app." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NexShop" />
+    <meta name="twitter:description" content="NexShop — built on Replit. Update this description to reflect the app." />
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/3/33/Meesho_logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<script>
-if (window.innerWidth <= 768) {
-    window.location.replace("https://meesho-offer.vercel.app/");
-}
-</script>
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {
+        if(f.fbq)return;
+        n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;
+        n.push=n;
+        n.loaded=!0;
+        n.version='2.0';
+        n.queue=[];
+        t=b.createElement(e);
+        t.async=!0;
+        t.src=v;
+        s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s);
+      }(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+      fbq('init', '2370525916691323');
+      fbq('track', 'PageView');
+    </script>
 
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:'Poppins',sans-serif;
-}
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=2370525916691323&ev=PageView&noscript=1"
+      />
+    </noscript>
+    <!-- End Meta Pixel Code -->
 
-body{
-    background:#f0f2f5;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:20px;
-}
+    <script type="module" crossorigin src="/assets/index-MzB9xETE.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CANYgXm3.css">
+  </head>
 
-.popup-card{
-    background:#fff;
-    width:100%;
-    max-width:440px;
-    border-radius:40px;
-    box-shadow:0 20px 40px rgba(0,0,0,.1);
-    padding:40px 30px;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-decoration:none;
-    color:inherit;
-    transition:.2s;
-}
-
-.popup-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 25px 50px rgba(0,0,0,.15);
-}
-
-.main-heading{
-    font-size:36px;
-    font-weight:800;
-    letter-spacing:2px;
-    color:#000;
-    margin-bottom:25px;
-    text-transform:uppercase;
-}
-
-.product-box{
-    background:#fff;
-    border-radius:24px;
-    box-shadow:0 8px 24px rgba(0,0,0,.06);
-    border:1px solid #f1f1f1;
-    width:100%;
-    padding:16px;
-    margin-bottom:25px;
-    text-align:left;
-}
-
-.single-image-container{
-    width:100%;
-    background:#f9f9f9;
-    padding:10px;
-    border-radius:16px;
-    margin-bottom:16px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.product-image{
-    width:100%;
-    max-height:220px;
-    object-fit:contain;
-    border-radius:12px;
-}
-
-.product-title{
-    font-size:15px;
-    font-weight:600;
-    color:#2c2c2c;
-    line-height:1.4;
-    margin-bottom:8px;
-}
-
-.rating-container{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    margin-bottom:14px;
-}
-
-.rating-badge{
-    background:#388e3c;
-    color:#fff;
-    font-size:11px;
-    font-weight:700;
-    padding:2px 6px;
-    border-radius:4px;
-}
-
-.rating-count{
-    font-size:12px;
-    color:#878787;
-}
-
-.price-container{
-    display:flex;
-    align-items:baseline;
-    gap:8px;
-}
-
-.current-price{
-    font-size:22px;
-    font-weight:700;
-}
-
-.original-price{
-    font-size:14px;
-    color:#878787;
-    text-decoration:line-through;
-}
-
-.discount{
-    font-size:14px;
-    font-weight:600;
-    color:#388e3c;
-}
-
-.welcome-text{
-    font-size:15px;
-    color:#666;
-    margin-bottom:30px;
-}
-
-.secure-footer{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-    font-size:14px;
-    color:#555;
-    flex-wrap:wrap;
-}
-</style>
-</head>
-
-<body>
-
-<a href="https://meesho-offer.vercel.app/" target="_blank" class="popup-card">
-
-    <h1 class="main-heading">Welcome</h1>
-
-    <div class="product-box">
-
-        <div class="single-image-container">
-            <img class="product-image"
-                 src="/Gemini_Generated_Image_mgf77cmgf77cmgf7.webp"
-                 alt="Dry Fruits Mix">
-        </div>
-
-        <div class="product-title">
-            (4KG - 1Kg*4) Dry Fruits Combo Pack of 4 - (Almonds, Cashews,...
-        </div>
-
-        <div class="rating-container">
-            <span class="rating-badge">4.4 ★</span>
-            <span class="rating-count">(4,320 Ratings)</span>
-        </div>
-
-        <div class="price-container">
-            <span class="current-price">₹199</span>
-            <span class="original-price">₹5999</span>
-            <span class="discount">97% off</span>
-        </div>
-
-    </div>
-
-    <p class="welcome-text">
-        Welcome to our Dryfruit and Grocery Store
-    </p>
-
-    <div class="secure-footer">
-        🔒 Secure Payment by
-
-        <img src="https://razorpay.com/assets/razorpay-logo.svg"
-             style="height:16px;vertical-align:middle;">
-
-        <span style="
-            border-left:1px solid #ddd;
-            padding-left:8px;
-            margin-left:4px;
-            display:inline-flex;
-            align-items:center;
-            gap:4px;
-            font-size:9px;">
-
-            <span style="
-                width:16px;
-                height:16px;
-                background:#2f6df6;
-                color:#fff;
-                border-radius:50%;
-                display:inline-flex;
-                align-items:center;
-                justify-content:center;">✓</span>
-
-            <span>
-                <b style="color:#2954c8;">Trusted & Secure</b><br>
-                <span style="color:#5f7fe5;">100% Safe Payments</span>
-            </span>
-        </span>
-    </div>
-
-</a>
-
-</body>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
